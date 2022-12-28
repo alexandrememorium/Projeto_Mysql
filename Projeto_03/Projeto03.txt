@@ -1,0 +1,20 @@
+tabela Cliente
+id 
+Nome
+CPF
+email
+
+
+tabela produto
+codbarras
+nomeproduto
+valor produto
+
+
+tabela pedido
+numeropedido
+dt_pedido
+cod_dliente
+cod_barras
+qtd
+status (Aberto, Pago, Cancelado)
