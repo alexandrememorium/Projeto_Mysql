@@ -86,6 +86,7 @@ INSERT INTO `pagamento`.`transacao` (`Id_Usuario`, `Id_Cartao`, `Valor`, `Data_d
 
 
 /* 10. Criar uma query que retorne todas as transações cadastradas em ordem decrescente da data de cadastro, contendo os dados do usuário e cartão, não apenas seus IDs. */
+/* - Uma forma de fazer */
 SELECT t.`id`,
        t.`id_usuario`,
        u.`nome`,
@@ -100,4 +101,21 @@ SELECT t.`id`,
 from `transacao` as `t`
 inner join `usuario` as `u` on u.`id` = t.`id_usuario`
 inner join `cartao` as `c` on c.`id` = t.`id_cartao`
-ORDER BY t.`data_de_cadastro` DESC
+ORDER BY t.`data_de_cadastro` DESC;
+
+/* - Outra forma de Fazer */
+SELECT t.`id`,
+       t.`id_usuario`,
+       u.`nome`,
+       u.`nome_de_usuario`,
+       t.`id_cartao`,
+       c.`numero`,
+       c.`cvv`,
+       c.`data_de_expiracao`,
+       c.`valido`,
+       t.`valor`,
+       t.`data_de_cadastro`
+FROM `cartao` AS `c`, `usuario` AS `u`
+JOIN `transacao` AS `t`
+WHERE c.`Id` = t.`id` AND u.`Id` = c.`Id`
+ORDER BY t.`data_de_cadastro` DESC;
