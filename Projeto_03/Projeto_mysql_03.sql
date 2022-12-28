@@ -14,18 +14,18 @@ CREATE TABLE `proj_php`.`cliente` (
   `CPF` VARCHAR(11) NOT NULL,
   `email` NCHAR(10) NULL,
   `Dt_Cadastro` DATE NULL,
-  PRIMARY KEY (`Id`));
+  PRIMARY KEY (`Id_Cliente`));
 
 /* 3. Criar a tabela "produto" com os seguintes campos: */
 /*     codbarras           */
-/*     NomeProduto        */
-/*     ValorUnitario      */
+/*     NomeProduto         */
+/*     ValorUnitario       */
 /*     Dt_Cadastro         */
 
-CREATE TABLE `proj_pho`.`produto` (
+CREATE TABLE `proj_php`.`produto` (
   `Codbarras` Varchar(20) NOT NULL,
   `NomeProduto` VARCHAR(100) NULL,
-  `ValorUnitario` Float(30,2) NOT NULL,
+  `ValorUnitario` DECIMAL(19,2) NOT NULL,
   `Dt_Cadastro` DATE NULL,
   PRIMARY KEY (`Codbarras`));
 
@@ -40,7 +40,7 @@ CREATE TABLE `proj_php`.`pedido` (
   `NumeroPedido` INT NOT NULL AUTO_INCREMENT,
   `Id_Cliente` INT NOT NULL,
   `CodBarras` Varchar(20) NOT NULL,
-  `Quantidader` INT NOT NULL,
+  `Quantidade` INT NOT NULL,
   `Dt_Pedido` TIMESTAMP NOT NULL,
   PRIMARY KEY (`NumeroPedido`));
 
